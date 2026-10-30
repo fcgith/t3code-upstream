@@ -1547,7 +1547,7 @@ it.effect("a stalled desktop viewer still gets its size, control and reconnect",
       yield* viewer.input({ type: "takeControl" });
       context.page.emit("filechooser", {
         isMultiple: () => false,
-        element: () => ({ getAttribute: async () => ".csv" }),
+        element: () => fileChooserElement(".csv"),
         setFiles: vi.fn(async () => {}),
       });
       let chooser = yield* Queue.take(viewer.output);
